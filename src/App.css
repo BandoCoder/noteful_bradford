@@ -1,0 +1,110 @@
+.backgroundDiv {
+  background-color: rgb(61, 109, 165);
+}
+
+.App {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(140, 169, 194);
+  border: rgb(0, 0, 0);
+  border-style: solid;
+  max-width: 800px;
+}
+
+header {
+  border: solid;
+  margin: 15px;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+}
+
+.folders {
+  flex: 1;
+  border-style: solid;
+  margin: 10px;
+  background-color: rgba(97, 48, 48, 0.315);
+}
+
+.folder {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  margin: 10px;
+  margin-right: 40px;
+  font-size: 20px;
+  padding: 15px;
+  padding-left: 30px;
+  background-color: rgba(255, 235, 205, 0.26);
+}
+
+.noteList {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  padding: 5px;
+  margin: 10px;
+}
+
+.noteBox {
+  border-style: solid;
+  margin: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.AddNoteBox {
+  border-style: solid;
+  margin: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.addNoteForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 200px;
+  margin: auto;
+  padding: 10px;
+  color: rgb(140, 169, 194);
+  border-style: solid;
+}
+
+.formEls {
+  margin: 10px;
+}
+
+#addNote {
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.submit {
+  margin-bottom: 15px;
+  max-width: min-content;
+  justify-content: center;
+  margin: auto;
+}
+
+#addNote input textarea {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+textarea {
+  resize: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
