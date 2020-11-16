@@ -1,10 +1,10 @@
 import React from "react";
 import NoteBox from "./NoteBox";
-import { NavLink } from "react-router-dom";
 import { getNotesForFolder } from "../noteHelpers";
+import PropTypes from "prop-types";
 import StoreContext from "../STORE";
 
-export default class NoteListMain extends React.Component {
+export default class NoteList extends React.Component {
   static contextType = StoreContext;
   static defaultProps = {
     match: {
@@ -25,10 +25,18 @@ export default class NoteListMain extends React.Component {
             </li>
           ))}
         </ul>
-        <NavLink className="AddNoteBox" to="/AddNoteForm">
-          Add Note
-        </NavLink>
       </section>
     );
   }
 }
+
+NoteList.propTypes = {
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      modified: PropTypes.number,
+      folderId: PropTypes.string.isRequired,
+    })
+  ),
+};

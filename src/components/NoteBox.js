@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import StoreContext from "../STORE";
+import PropTypes from "prop-types";
 import config from "../config";
 
 export default class NoteBox extends React.Component {
@@ -35,18 +36,30 @@ export default class NoteBox extends React.Component {
   render() {
     const { name, id } = this.props;
     return (
-      <div className="noteBox">
-        <h3 className="noteTitle">
-          <NavLink to={`/note/${id}`}>{name}</NavLink>
-        </h3>
-        <button
-          className="deleteBtn"
-          type="button"
-          onClick={this.handleDeleteNote}
-        >
-          Del
-        </button>
-      </div>
+      <NavLink className="link" to={`/note/${id}`}>
+        <div className="noteBox">
+          <h3 className="noteTitle">{name}</h3>
+          <button
+            className="deleteBtn"
+            type="button"
+            onClick={this.handleDeleteNote}
+          >
+            Del
+          </button>
+        </div>
+      </NavLink>
     );
   }
 }
+
+NoteBox.propTypes = {
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      modified: PropTypes.number,
+      folderId: PropTypes.string.isRequired,
+      content: PropTypes.string,
+    })
+  ),
+};

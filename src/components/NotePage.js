@@ -1,8 +1,8 @@
 import { Component } from "react";
-import NoteBox from "./NoteBox";
 import StoreContext from "../STORE";
 import { findNote } from "../noteHelpers";
 import GoBack from "./GoBack";
+import PropTypes from "prop-types";
 
 export default class NotePage extends Component {
   static contextType = StoreContext;
@@ -18,13 +18,27 @@ export default class NotePage extends Component {
     return (
       <div>
         <section className="noteBoxExpanded">
-          <NoteBox id={note.id} name={note.name} />
+          <h1>{note.name}</h1>
           <p>{note.content}</p>
-        </section>
-        <aside>
           <GoBack history={this.props.history} />
-        </aside>
+        </section>
       </div>
     );
   }
 }
+
+NotePage.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.object,
+  }),
+
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      modified: PropTypes.number,
+      folderId: PropTypes.string.isRequired,
+      content: PropTypes.string,
+    })
+  ),
+};
