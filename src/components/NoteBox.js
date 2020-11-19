@@ -38,7 +38,7 @@ export default class NoteBox extends React.Component {
     return (
       <NavLink className="link" to={`/note/${id}`}>
         <div className="noteBox">
-          <h3 className="noteTitle">{name}</h3>
+          <h1 className="noteTitle">{name}</h1>
           <button
             className="deleteBtn"
             type="button"
